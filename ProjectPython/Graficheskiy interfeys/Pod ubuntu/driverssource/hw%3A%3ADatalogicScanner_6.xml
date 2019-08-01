@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects>
+    <object id="hw::DatalogicScanner_6" factory-object="hw::DatalogicScannerFactory" factory-method="getObject" init-method="init">
+        <property name="serialObj">
+            <ref object="hw::UsbSerial_6"/>
+        </property>
+        <property name="timeout">
+            <value>50</value>
+        </property>
+        <property name="scannerOnlyMode">
+            <value>true</value>
+        </property>
+    </object>
+</objects>

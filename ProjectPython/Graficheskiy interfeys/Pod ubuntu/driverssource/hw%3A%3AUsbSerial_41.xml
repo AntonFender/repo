@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects>
+    <object id="hw::UsbSerial_41" factory-object="hw::UsbSerialFactory" factory-method="getObject" init-method="init">
+        <property name="device">
+            <value></value>
+        </property>
+        <property name="vendor">
+            <value>0403</value>
+        </property>
+        <property name="product">
+            <value>6001</value>
+        </property>
+        <property name="hub">
+            <value>1-2.4.4:1.0</value>
+        </property>
+    </object>
+</objects>

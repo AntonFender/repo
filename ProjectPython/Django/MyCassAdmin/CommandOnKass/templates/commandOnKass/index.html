@@ -1,0 +1,42 @@
+<html>
+{% load static %}
+
+<title>Справочник</title>
+<head>
+<font  size="5" color="black">
+<p align="right">
+OOO "СТЭЛС"
+</p>
+</font>
+<font align="left" size="20" color="Black">
+<h3>
+Содержание:
+</h3>
+</font>
+</head>
+
+<style>
+a:link {color:black;text-decoration:none;} /* не посещенная ссылка */
+a:visited {color:black;text-decoration:none;} /* посещенная ссылка */
+a:hover {color:green;text-decoration:none;} /* ссылка при наведении на нее мышкой */
+a:active {color:black;text-decoration:none;} /* нажатая ссылка */
+</style>
+
+<body background= {% static "commandOnKass/1.jpg" %}>
+<br><br><br>
+
+<font align="left" size="5" color="yellow">
+<a href={% static "commandOnKass/site/CommandConsole.html" title="Команды консоли для удаленой помощи" %} >1. Команды для удаленой помощи</a><br>
+<a href={% static "commandOnKass/site/Graphic.html" title="График доставки товара в филиалы" %} >2. График доставки товара в филиалы</a><br>
+<a href={% static "commandOnKass/site/Kontact.html" title="Контакты торговых представителей" %}>3. Контакты торговых представителей</a><br>
+<a href={% static "commandOnKass/site/INNORG.html" title="ИНН Организаций Стэлс" %}>4. ИНН Организаций Стэлс</a><br>
+<a href={% static "commandOnKass/site/ModemSilki.html" title="Модемы и ссылки" %}>5. Модемы и ссылки</a><br>
+<a href={% static "commandOnKass/site/File.html" title="Инструкции и прочие документы" %}>6. Инструкции и прочие документы</a><br>
+
+
+
+
+
+</font>
+</body>
+</html>

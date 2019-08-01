@@ -1,0 +1,21 @@
+1)Закачать нормальный sources.list
+2)Выполнить apt update
+3)Выполнить apt install python-tk
+4)apt-get install python-imaging
+5)Переименовать:
+
+from tkinter import Tk, Canvas, Frame, BOTH, W
+from
+tkinter import *
+
+В это:
+
+from Tkinter import Tk, Canvas, Frame, BOTH, W
+from
+Tkinter import *
+
+6)Скрипт не будет работать в папке root!!!
+
+7)Данный скрипт на кассе вызывается командой:
+
+sudo DISPLAY=:0 XAUTHORITY=/home/autologon/.Xauthority sudo -u autologon /linuxcash/windows.py

@@ -1,0 +1,164 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<html>
+
+
+<title>Команды консоли для удаленой помощи</title>
+<head>
+<font  size="5" color="black">
+<p align="right">
+OOO "СТЭЛС"
+</p>
+</font>
+<input type="button" onclick="history.back();" value="Назад"/>
+<font align="left" size="6" color="Black">
+<h3>
+Команды консоли для удаленой помощи:
+<hr width="40%" align="left" color="green" size ="3" noshade>
+</h3>
+</font>
+</head>
+
+<style>
+a:link {color:black;text-decoration:none;} /* не посещенная ссылка */
+a:visited {color:black;text-decoration:none;} /* посещенная ссылка */
+a:hover {color:green;text-decoration:none;} /* ссылка при наведении на нее мышкой */
+a:active {color:black;text-decoration:none;} /* нажатая ссылка */
+</style>
+
+<body background="img/2.jpg"}>
+
+<b><font size=5">[MYSQL]</font></b>
+<br><br>
+
+<font align="Right" size="4" color="black">
+<i>Лечение mysql:</i><br>
+service nes stop && service sync-core2 stop && service qpidd stop && service mysql restart && pkill artix-gui && sudo mysql -e "drop database dictionaries"
+<hr noshade width="40%" align="left">
+
+<i>Проверка наличия справочника в БД кассы по имени товара:</i><br>
+mysql -e "use dictionaries; select name,minprice from tmc WHERE name LIKE '%ТАЕЖНАЯ%';"
+<hr noshade width="40%" align="left">
+
+<i>Проверка наличия справочника в БД кассы по штрих-коду:</i><br>
+mysql -e "use dictionaries; select name, barcode from barcodes WHERE barcode LIKE '4600855118279';"
+<hr noshade width="40%" align="left">
+</font>
+
+<br><br>
+<b><font size=5">[QPID]</font></b>
+<br><br>
+
+
+<font align="Right" size="4" color="black">
+<i>Лечение очереди(после выполнения перезапустить кассу):</i><br>
+service sync-core2 stop && service qpidd stop && rm -r /var/spool/qpid/* && service qpidd start && service sync-core2 start && rm -f /var/log/*
+<hr noshade width="40%" align="left">
+
+<i>Удаление очереди qpid:</i><br>
+qpid-config del queue artix.loaddict.cash --force && service nes restart && sudo /etc/init.d/qpidd restart
+<hr noshade width="40%" align="left">
+</font>
+
+<br><br>
+<b><font size=5">[УДАЛИТЬ ЧЕК]</font></b>
+<br><br>
+
+
+<font align="Right" size="4" color="black">
+<i>Удалить CHECK.IMG:</i><br>
+rm -f /linuxcash/cash/data/tmp/check.img && pkill artix-gui
+<hr noshade width="40%" align="left">
+</font>
+
+<br><br>
+<b><font size=5">[СКАНИРОВАНИЕ В МОНИТОР КАССИРА ЧЕРЕЗ КОНСОЛЬ]</font></b>
+<br><br>
+
+<font align="Right" size="4" color="red">
+<i>Сначала надо установить XDOTOOL на кассу:</i><br>
+apt install xdotool
+</font>
+<hr noshade width="40%" align="left">
+<font align="Right" size="4" color="black">
+<i>Сканирование штрих-кодов через консоль:</i><br>
+DISPLAY=:0 XAUTHORITY=/home/autologon/.Xauthority sudo -u autologon xdotool type 4600855118279
+<hr noshade width="40%" align="left">
+<i>Запуск скрипта ПЕРВАЯ ПОМОЩЬ:</i><br>
+sudo DISPLAY=:0 XAUTHORITY=/home/autologon/.Xauthority sudo -u autologon /opt/FirstHelpAndScan/windows.py
+<hr noshade width="40%" align="left">
+</font>
+
+<br><br>
+<b><font size=5">[ОПЕРАЦИИ НА КС]</font></b>
+<br><br>
+
+<font align="Right" size="4" color="black">
+<i>Запуск всех служб:</i><br>
+sudo start virgo && sudo start mongodb && sudo start nes && sudo start exchangers-soap-upload && sudo start exchangers-rest-upload && sudo start exchangers-upload && sudo start exchangers-unload && sudo /etc/init.d/qpidd start && sudo start mysql
+<hr noshade width="40%" align="left">
+<i>Остановка всех служб:</i><br>
+sudo stop virgo && sudo stop mongodb && sudo stop nes && sudo stop exchangers-soap-upload && sudo stop exchangers-rest-upload && sudo stop exchangers-upload && sudo stop exchangers-unload && sudo /etc/init.d/qpidd stop
+<hr noshade width="40%" align="left">
+<i>Поиск IP на КС по FSRAR</i><br>
+cat /etc/openvpn/ipp.txt | grep 766645
+<hr noshade width="40%" align="left">
+<i>Удалить сертификат VPN:</i><br>
+&#10102; cd /opt/certificate<br>
+&#10103; svn del cash-30000111111.crt cash-300000111111.csr cash-30000111111.key (Это пример, вставляем свои FSRAR)<br>
+&#10104; svn commit -m 'del bag cert'<br>
+<hr noshade width="40%" align="left">
+<i>Создать сертификат VPN:</i><br>
+&#10102; cd /opt/certificate<br>
+&#10103; ./gencert.sh cash-30000111111 (Это пример, вставляем свои FSRAR)<br>
+<hr noshade width="40%" align="left">
+</font>
+
+<br><br><br><br><br><br>
+<b><font size=5">[ЛОГ ФАЙЛЫ]</font></b>
+<br><br>
+
+<font align="Right" size="4" color="black">
+<i>Удаление log-файлов с /var/log/</i><br>
+rm -f /var/log/*.gz && rm -f /var/log/*.log.?
+<hr noshade width="40%" align="left">
+
+<i>Проверить размер директории с логами:</i><br>
+&#10102; Размер папки с логами:                                        du -h /var/log/<br>
+&#10103; Размер всех файлов лежащих в папке с логами:                  du -h /var/log/*<br>
+&#10104; Показать все файлы в папке /var/log/ вещающие в мегабайтах:   du -h /var/log/* | grep M<br>
+<hr noshade width="40%" align="left">
+</font>
+
+<br><br>
+<b><font size=5">[ПОДТВЕРЖДЕНИЕ НАКЛАДНЫХ]</font></b>
+<br><br>
+
+
+<font align="Right" size="4" color="black">
+<i>Подтвердить накладные через консоль на кассе:</i><br>
+/root/easyegais22/easyegais2.sh  /root/easyegais22
+<hr noshade width="40%" align="left">
+</font>
+
+<br><br>
+<b><font size=5">[PUPPET]</font></b>
+<br><br>
+
+
+<font align="Right" size="4" color="black">
+<i>Удаление сертификатов SSH с PUPPET(Заходить надо на сервер Puppet):</i><br>
+puppet cert clean cash-20000222222-200002222221
+<hr noshade width="40%" align="left">
+
+<br><br>
+<b><font size=5">[Горячие Клавиши на кассах]</font></b>
+<br><br>
+
+<img src="File/ГорячиеКлавиши.png" alt="Горячие Клавиши на кассах">
+
+<br>
+<input type="button" onclick="history.back();" value="Назад"/>
+<br><br><br><br>
+</body>
+</html>

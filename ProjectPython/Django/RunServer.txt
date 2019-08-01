@@ -1,0 +1,2 @@
+cd C:\Users\Мартынов\Desktop\ProjectPython\Django\MyCassAdmin
+python manage.py runserver
