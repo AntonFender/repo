@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 	#My Web Pages
 	'BookOfKnowledge',
 	'CommandOnKass',
+	'prog',
 ]
 
 MIDDLEWARE = [
