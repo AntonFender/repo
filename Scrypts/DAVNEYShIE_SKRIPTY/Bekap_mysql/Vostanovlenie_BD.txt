@@ -1,0 +1,43 @@
+dictionariesAll
+-------------------------------------------
+
+Бэкапы БД
+
+mysqldump -uroot -proot dictionariesAll  > dictionariesAll.sql
+
+mysqldump -uroot -proot Database  > Database.sql  - Не делается
+
+mysqldump -uroot -proot information_schema  > information_schema.sql  -Не сделалась
+
+mysqldump -uroot -proot artixcsAll  > artixcsAll.sql
+
+mysqldump -uroot -proot artixcs_struct  > artixcs_struct.sql
+
+mysqldump -uroot -proot documentsAll  > documentsAll.sql
+
+mysqldump -uroot -proot import_db  > import_db.sql
+
+mysqldump -uroot -proot mysql  > mysql.sql - сделался возможно корявый
+
+mysqldump -uroot -proot performance_schema  > performance_schema.sql  - Не сделался
+
+mysqldump -uroot -proot result_db  > result_db.sql
+
+mysqldump -uroot -proot zabbix_proxy  > zabbix_proxy.sql
+
+
+Востановление БД:
+-----------------------------------------------
+
+mysql -e "use dictionariesAll; drop database dictionariesAll;" -uroot -proot
+mysql -e "create database dictionariesAll;" -uroot -proot
+mysql -uroot -proot dictionariesAll < dictionariesAll.sql
+
+Помогло при востановлении:
+
+mysql -e "use artixcsAll; drop database artixcsAll;" -uroot -proot
+mysql -e "create database artixcsAll;" -uroot -proot
+mysql -uroot -proot artixcsAll < artixcsAll.sql
+
+
+

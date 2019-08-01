@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#Глобальные параметры УТМ
+UTM_IP_Address="10.9.0.241"
+UTM_Port="8082"
+#Максимальное время ожидания ответа от УТМ (в минутах)
+ReplyTimeout=20
+#Выводить нумерованный список остатков немаркируемого алкоголя в журнал работы (1 - да, 0 - нет)
+LogBeer=0
+#Коды вида продукции для списания
+BeerProductVCode="500 520 261 262 263"
+#Включить "быстрое" подтверждение накладных
+QuickAcceptTTNs=0
+
+#Параметры FTP-сервера для отправки логов
+FTPServer="ftp.kassir-report.ru"
+FTPUser="smoke_logger"
+FTPPassword="simple_password111222"
+#Символ, завершающий путь, "/", в конце пути обязателен
+FTPPath="/upload/"
+FTPPathCSV="/upload/csvs/"

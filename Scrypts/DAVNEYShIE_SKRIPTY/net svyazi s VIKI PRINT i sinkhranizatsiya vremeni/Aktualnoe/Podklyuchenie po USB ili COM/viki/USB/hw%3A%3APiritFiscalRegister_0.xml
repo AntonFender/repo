@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects>
+    <object id="hw::PiritFiscalRegister_0" factory-object="hw::PiritFiscalRegisterFactory" factory-method="getObject" init-method="init">
+        <property name="deviceId">
+            <value>1</value>
+        </property>
+        <property name="serialObj">
+            <ref object="hw::Serial_0"/>
+        </property>
+        <property name="model">
+            <value></value>
+        </property>
+    </object>
+</objects>

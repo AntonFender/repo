@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Script name to delete from crontab when done
+script_name="${0##*/}"
+
+# Directory with scripts
+s_dir=/home/
+
+# Send error messages to log
+exec 2>"$s_dir"/autoconfig.log
+
+# Initialize the FR
+"$s_dir"/FR_rebot1.sh
+
+# Get the FRs id from its log
+fr_id="$(perl -e 'use utf8; binmode(STDIN, ":utf8"); while (<STDIN>) { if (/Серийный номер: (\d{16}|\d{9})$/) { $id = $1 } }; print "$id\n"; if ($id) { print STDERR "ID FR found: $id\n"; flush STDERR; exit 0; } else { print STDERR "ID FR not found\n"; flush STDERR; exit 1 } ' < /linuxcash/logs/current/frinit.log)" 
+fr_found=$((!$?))
+
+# cash_id="$(grep "$fr_id" < "$s_dir"/Spisok.txt)"
+# cash_found=$((!$?))
+
+cash_id="$(sed -n 's/^.*'"$fr_id"';\([0-9]*\)/\1/p' < "$s_dir"/Spisok.txt)"
+
+
+if [ "$cash_id" ] 
+then
+	echo "Cash id $cash_id found for FR id $fr_id" >&2
+
+	sed -i 's/\(shopCode"\s*:\s*"\)[^"]*/\1'$cash_id'/; s/\(cashCode"\s*:\s*"\)[^"]*/\1'$cash_id'1/' /linuxcash/cash/data/cash.reg
+	echo "Updating /linuxcash/cash/data/cash.reg" >&2
+
+	if (( fr_found )) && [ "$cash_id" ]
+	then
+		cp /etc/crontab /tmp/crontab
+
+		perl -e 'while (<STDIN>) { if (/'"$script_name"'/) { $success = 1 } else { print } } exit !$success' </tmp/crontab >/etc/crontab
+		removed_cronjob=$((!$?))
+		if ((removed_cronjob))
+		then
+			echo "Success! The script "$s_dir"/autoconfig was removed from /etc/crontab" >&2
+			echo "Adding Anton's script to crontab..." >&2
+			echo "*/2 * * * * root $s_dir/FR_rebot1.sh" >> /etc/crontab
+			echo "Done" >&2
+		else
+			echo "Success! The script "$s_dir"/autoconfig WAS NOT removed from /etc/crontab" >&2
+		fi
+	fi
+
+else
+	echo "Cash ID NOT found for FR id $fr_id in $s_dir/Spisok.txt" >&2
+fi
+
+
+echo >&2
+echo \(Debug info: fr_found=$fr_found cash_found=$cash_found \$0=$0\ script_name="${0##*/}"\) >&2

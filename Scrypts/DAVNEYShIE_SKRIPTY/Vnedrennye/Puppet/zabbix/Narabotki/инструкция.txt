@@ -1,0 +1,98 @@
+УСТАНОВКА ZABBIX
+
++1) Добавить файл zabbix.list   в директорию /etc/apt/sources.list.d/    
++2) Выполнить apt update
++3)sudo apt-get install -y --force-yes zabbix-agent
+
+ЗАМЕНА КОНФИГА в ZABBIX
+
+4.1)добавить на все кассы маршрут route add -host 192.168.0.9 gw 10.9.0.1
++4.2)в файле /etc/zabbix/zabbix_agentd.conf изменить timeout = 30
++4.3)в файле /etc/hosts добавить строку 192.168.0.9 zabbix
++4.4)в файле /etc/zabbix/zabbix_agentd.conf Server и ServerActive прописать 192.168.0.9,10.9.0.1
++4.5) Поменять в /etc/zabbix/zabbix_agentd.conf hostname=zabbix
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	package { 'zabbix_agent' :
+		name		=> 'zabbix-agent',
+		provider	=> 'aptitude',
+		require		=> [ Exec[ 'Updateapt' ], File[ 'zabbix.list' ]  ],
+	}
+
+
+
+
+
+
+
+
+
+
+
+	exec { "Routehost":
+        path        => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games",
+        command     => "up route add -host 192.168.0.9 gw 10.9.0.1",
+       logoutput   => true
+		}	
+		
+			
+			$Route_host			= 'route add -host 192.168.0.9 gw 10.9.0.1'
+		 
+		 	
+			
+			file { 'rc.local' :
+		name	=> "/etc/rc.local",
+		content	=> template("stels_zabbix/rc.local.erb"),
+	}
+	
+	
+	
+		
+		
+		
+		
+		if $stels_zabbix::enable {
+		service { 'zabbix_agent' :
+			ensure		=> $stels_zabbix::enable ? { true => running, default => stopped, },
+			name		=> zabbix-agent,
+			hasstatus	=> true,
+			enable		=> $stels_zabbix::enable,
+			requir		=> Package['zabbix_agent']
+		}
+	
+	file { 'zabbix_agentd.conf' :
+		name		=> "/etc/zabbix/zabbix_agentd.conf",
+		content		=> template("stels_zabbix/zabbix_agentd.conf.erb"),
+		requir		=> Package[ 'zabbix_agent' ],
+		notify		=> Service['zabbix-agent'],
+	}
+	
+	}
+
+	else {
+		file { '/etc/zabbix/zabbix_agentd.conf' :
+			ensure	=> absent,
+		}
+	}
+	
+	
+	
+	
+	
+	
+	$ip_server			= '192.168.0.9',
+	$hostname_server	= 'zabbix',
+	$Server_zabbix		= '192.168.0.9,10.9.0.1',
+	$Hostname_zabbix	= 'zabbix',	
+	$Timeout_zabbix		= 30

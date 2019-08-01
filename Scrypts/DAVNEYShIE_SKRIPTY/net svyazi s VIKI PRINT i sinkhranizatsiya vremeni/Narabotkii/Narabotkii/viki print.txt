@@ -1,0 +1,19 @@
+sudo modprobe -r cdc_acm
+sudo modprobe -r cdc_acm
+modprobe cdc_acm
+service comproxy restart
+
+service comproxy stop && rm -f /dev/ttyACM* && sleep 2 && rmmod cdc-acm && modprobe cdc-acm && chmod 777 /dev/ttyACM*
+ 
+
+
+service comproxy stop
+rm -f /dev/ttyACM*
+rmmod cdc-acm
+modprobe cdc-acm
+mknod /dev/usb/ttyACM0 c 166 0 
+chmod 777 /dev/ttyACM*
+ln -s /dev/ttyACM0 /dev/ttyS90
+ln -s /dev/ttyS90 /dev/ttyS91
+service comproxy start
+/linuxcash/cash/bin/frinit -gp on

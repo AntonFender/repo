@@ -1,0 +1,67 @@
+{"command": "clearInventory"}
+---
+
+{
+"command":"addInventItem",
+"invent":{
+	"taracapacity":1.5,
+	"measureCode":868,
+	"alctypecode":500,
+	"options":{
+		"inventItemOptions":{
+			"egaisverify":0
+			},
+		"priceOptions":{
+			"enablePriceManual":1,
+			"requirePriceManual":1
+			},
+		"quantOptions":{
+			"enableQuantityManual":1
+			}
+		},
+	"minPrice":0,
+	"deptCode":1,
+	"price":0,
+	"taxGroupCode":2,
+	"isInvent":true,
+	"inventcode":13480,
+	"alcoholpercent":4.9,
+	"barcode":"4605622005219",
+	"rtext":"Белый Медведь. В Розлив 1,5л. пиво светлое пастеризованное ПЭТ. Пивоварня Москва-Эфес АО(Казань)",
+	"name":"Белый Медведь. В Розлив 1,5л. пиво светлое пастеризованное ПЭТ. Пивоварня Москва-Эфес АО(Казань)",
+	"isInventItem":true
+	}
+}
+---
+{
+"command":"addInventItem",
+"invent":{
+	"taracapacity":1.5,
+	"measureCode":868,
+	"alctypecode":500,
+	"options":{
+		"inventItemOptions":{
+			"egaisverify":0
+			},
+		"priceOptions":{
+			"enablePriceManual":1,
+			"requirePriceManual":1
+			},
+		"quantOptions":{
+			"enableQuantityManual":1
+			}
+		},
+	"taramode":1,
+	"minPrice":0,
+	"deptCode":1,
+	"price":0,
+	"taxGroupCode":2,
+	"isInvent":true,
+	"inventcode":1,
+	"alcoholpercent":4.9,
+	"barcode":"4605622005219",
+	"rtext":"Пластиковая бутылка ПЭТ 1,5л.",
+	"name":"Пластиковая бутылка ПЭТ 1,5л.",
+	"isInventItem":true
+	}
+}

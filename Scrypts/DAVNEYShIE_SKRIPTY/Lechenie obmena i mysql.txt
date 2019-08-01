@@ -1,0 +1,68 @@
+Лечение mysql:
+---------------
+service nes stop && service sync-core2 stop && service qpidd stop && service mysql restart && pkill artix-gui && sudo mysql -e "drop database dictionaries"
+
+Лечение очереди(после выполнения перезапустить кассу):
+-----------------------------------------------------------
+service sync-core2 stop && service qpidd stop && rm -r /var/spool/qpid/* && service qpidd start && service sync-core2 start && rm -f /var/log/*
+
+Удаление очереди qpidd:
+-----------------------------------------------------------
+qpid-config del queue artix.loaddict.cash --force && service nes restart && sudo /etc/init.d/qpidd restart
+
+
+Сканирование штрих-кодов через консоль:
+
+apt install xdotool
+DISPLAY=:0 XAUTHORITY=/home/autologon/.Xauthority sudo -u autologon xdotool type 4600855118279
+
+Проверка наличия справочника в БД кассы по имени товара:
+-----------------------------------------------------------
+
+mysql -e "use dictionaries; select name,minprice from tmc WHERE name LIKE '%ТАЕЖНАЯ%';"
+
+Проверка наличия справочника в БД кассы по штрих-коду:
+----------------------------------------------------------
+mysql -e "use dictionaries; select name, barcode from barcodes WHERE barcode LIKE '4600855118279';"
+
+
+Сертификаты VPN:
+
+	Удалить сертификат VPN:
+
+1)svn del cash-30000111111.crt cash-300000111111.csr cash-30000111111.key
+2)svn commit -m 'del bag cert'
+
+	Создать сертификат VPN:
+1)cd /opt/certificate
+2)./gencert.sh cashsima-020000123123
+
+
+Комманда на кнопку ПЕРВАЯ ПОМОЩЬ:
+
+shell:///sudo%20DISPLAY=:0%20XAUTHORITY=/home/autologon/.Xauthority%20sudo%20-u%20autologon%20/linuxcash/windows.py
+
+Команда архивации и разархивации в ZIP формат
+
+zip -r -9 BUP.zip Имя_файла     -архивация
+
+unzip BUP.zip 			-Разархивация
+
+ПРИМЕРНЫЙ ПОРЯДОК ЗАПУСКА КС:
+---------------------------------
+MongoDb
+Nes
+Файловый обмен (exchanger)
+Продажи через файлы (exchanger-unload)
+Qpid
+Mysql
+Кассовый сервер
+Web кассового сервера
+
+Запуск всех служб:
+sudo start virgo && sudo start mongodb && sudo start nes && sudo start exchangers-soap-upload && sudo start exchangers-rest-upload && sudo start exchangers-upload && sudo start exchangers-unload && sudo /etc/init.d/qpidd start && sudo start mysql 
+
+Остановка всех служб:
+sudo stop virgo && sudo stop mongodb && sudo stop nes && sudo stop exchangers-soap-upload && sudo stop exchangers-rest-upload && sudo stop exchangers-upload && sudo stop exchangers-unload && sudo /etc/init.d/qpidd stop 
+
+

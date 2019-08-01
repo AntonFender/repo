@@ -1,0 +1,6 @@
+ID FR found: 0221400004047878
+Cash id 020000607769 found for FR id 0221400004047878
+Updating /linuxcash/cash/data/cash.reg
+Success! The script /home//autoconfig WAS NOT removed from /etc/crontab
+
+(Debug info: fr_found=1 cash_found= $0=/home/autoconfig script_name=autoconfig)

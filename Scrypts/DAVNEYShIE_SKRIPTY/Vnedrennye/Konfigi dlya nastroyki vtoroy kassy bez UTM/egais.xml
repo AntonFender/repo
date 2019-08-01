@@ -1,0 +1,16 @@
+<!-- Файл был сгенерирован сервером puppet -->
+<objects>
+    <object id="Egais" plugin="/linuxcash/cash/plugins/libEgais.so" >
+        <property name="address">
+           <value>http://10.9.3.95:8082/xml</value>
+        </property>
+        <property name="addressNonExcise">
+           <value>http://10.9.3.95:8084/xml</value>
+        </property>
+        <property name="timeout">
+            <value>30</value>
+        </property>
+    </object>
+</objects>
+
+

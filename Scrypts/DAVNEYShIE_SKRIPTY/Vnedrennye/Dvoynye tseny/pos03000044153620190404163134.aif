@@ -1,0 +1,87 @@
+﻿{"command": "clearInventory"}
+---
+
+{
+"command":"addInventItem",
+"invent":{
+	"taracapacity":0,
+	"measureCode":796,
+	"alctypecode":777,
+	"additionalprices": [
+      {
+        "pricecode": 1,
+        "price": 65.4800033569336,
+        "name": "Ушаков"
+       },
+      {
+        "pricecode": 2,
+        "price": 64.12999725341797,
+        "name": "Мартынов"
+      },
+      {
+        "pricecode": 3,
+        "price": 62.779998779296875,
+        "name": "Пиздец, проебался"
+      },
+      {
+        "pricecode": 4,
+        "price": 60.75,
+        "name": "Мартюнчик"
+      }
+    ],
+	"options":{
+		"inventItemOptions":{
+			"egaisverify":0,
+			"requiresalerestrict":1
+			},
+		"priceOptions":{
+			"enablePriceManual":0,
+			"requirePriceManual":0,
+			"requireselectprice":1
+			},
+		"quantOptions":{
+			"enableQuantityManual":1
+			}
+		},
+	"minPrice":0,
+	"deptCode":1,
+	"price":0,
+	"taxGroupCode":2,
+	"isInvent":true,
+	"inventcode":14837,
+	"alcoholpercent":null,
+	"barcode":"4631137371242",
+	"rtext":"Сигареты ПРИМА кр. без фильтра, МРЦ 36, Торгпром (сигареты) ООО",
+	"name":"Сигареты ПРИМА кр. без фильтра, МРЦ 36, Торгпром (сигареты) ООО",
+	"isInventItem":true
+	}
+}
+
+---
+{
+"command":"addUnit",
+"unit":{
+	"unitCode":868,
+	"fractional":false,
+	"name":"бут."
+	}
+}
+---
+{
+"command":"addUnit",
+"unit":{
+	"unitCode":796,
+	"fractional":false,
+	"name":"шт."
+	}
+}
+---
+{
+"command":"addUnit",
+"unit":{
+	"unitCode":0,
+	"fractional":false,
+	"name":""
+	}
+}
+---
