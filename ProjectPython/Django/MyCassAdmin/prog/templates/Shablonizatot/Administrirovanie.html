@@ -1,0 +1,20 @@
+<html>
+{% extends "Shablonizatot/wraper.html" %}
+
+
+{% block content %}
+
+<style>
+a:link {color:black;text-decoration:none;} /* не посещенная ссылка */
+a:visited {color:black;text-decoration:none;} /* посещенная ссылка */
+a:hover {color:green;text-decoration:none;} /* ссылка при наведении на нее мышкой */
+a:active {color:black;text-decoration:none;} /* нажатая ссылка */
+</style>
+
+{% include "Shablonizatot/includes/RekvizityStels.html" %}
+{% include "Shablonizatot/includes/PerehodNaGlavStr.html" %}
+
+{% endblock %}
+
+
+</html>

@@ -1,15 +1,15 @@
 <html>
+{% block content %}
+{% include "Shablonizatot/includes/RekvizityStels.html" %}
+{% include "Shablonizatot/includes/PerehodNaGlavStr.html" %}
+{% endblock %}
+
 {% load static %}
 
 <title>Справочник</title>
 <head>
-<font  size="5" color="black">
-<p align="right">
-OOO "СТЭЛС"
-</p>
-</font>
 <font align="left" size="20" color="Black">
-<h3>
+<h3><br>
 Содержание:
 </h3>
 </font>
@@ -23,7 +23,7 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 </style>
 
 <body background= {% static "commandOnKass/1.jpg" %}>
-<br><br><br>
+<br>
 
 <font align="left" size="5" color="yellow">
 <a href={% static "commandOnKass/site/CommandConsole.html" title="Команды консоли для удаленой помощи" %} >1. Команды для удаленой помощи</a><br>

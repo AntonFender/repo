@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Заголовок страницы</title>
+{% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+</head>
+
+{% block content %}
+
+<style>
+a:link {color:black;text-decoration:none;} /* не посещенная ссылка */
+a:visited {color:black;text-decoration:none;} /* посещенная ссылка */
+a:hover {color:green;text-decoration:none;} /* ссылка при наведении на нее мышкой */
+a:active {color:black;text-decoration:none;} /* нажатая ссылка */
+</style>
+
+{% include "Shablonizatot/includes/RekvizityStels.html" %}
+
+{% endblock %}
+
+{% load static %}
+
+<body background= {% static "commandOnKass/1.jpg" %}>
+<br><br>
+<div>
+<div class="container">
+      <h1>Главная страница</h1>
+<p>
+<a href=http://127.0.0.1:8000/Command class="btn btn-success btn-lg">Тех.поддержка</a>
+<a href=http://127.0.0.1:8000/Programma class="btn btn-primary btn-lg">Администрирование</a>
+</p>
+</div>
+</div>
+<div class="container">
+
+    <hr>
+    <div style="position:absolute; bottom:10px; left: 10px;">&copy; Все права защищены 2018</div>
+  </div>
+
+</body>
+
+</html>
