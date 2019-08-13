@@ -1,0 +1,63 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<html>
+
+
+<title>Ошибки и как их исправить</title>
+<head>
+<font  size="5" color="black">
+<p align="right">
+OOO "СТЭЛС"
+</p>
+</font>
+<input type="button" onclick="history.back();" value="Назад"/>
+<font align="left" size="6" color="Black">
+<h3>
+Ошибки и как их исправить:
+<hr width="40%" align="left" color="green" size ="3" noshade>
+</h3>
+</font>
+</head>
+
+<style>
+a:link {color:black;text-decoration:none;} /* не посещенная ссылка */
+a:visited {color:black;text-decoration:none;} /* посещенная ссылка */
+a:hover {color:green;text-decoration:none;} /* ссылка при наведении на нее мышкой */
+a:active {color:black;text-decoration:none;} /* нажатая ссылка */
+</style>
+
+<body background="img/2.jpg"}>
+
+<b><font size=5">[PUPPET]</font></b>
+<br><br>
+
+<font align="Right" size="5" color="black">
+<i>При обновлении Puppet выдает ошибку:</i><br>
+<font align="Right" size="4" color="red">
+Error: Could not request certificate: execution expired<br>
+Exiting; failed to retrieve certificate and waitforcert is disabled<br><br>
+</font>
+<i>Как устранить проблему:</i><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;1) В файлике "/etc/hosts" должны быть прописаны следующие строчки:<br><br>
+
+<font align="Right" size="4" color="green">
+127.0.0.1       cash-20000614697-200006146971   localhost<br>
+127.0.1.1       ubuntu<br>
+195.218.204.17 confsrv.puppet.ru<br>
+192.168.0.9    zabbix<br>
+# The following lines are desirable for IPv6 capable hosts<br>
+::1     localhost ip6-localhost ip6-loopback<br>
+ff02::1 ip6-allnodes<br>
+ff02::2 ip6-allrouters<br>
+</font>
+<hr noshade width="100%" align="left">
+
+<br>
+
+
+
+<br>
+<input type="button" onclick="history.back();" value="Назад"/>
+<br><br><br><br>
+</body>
+</html>

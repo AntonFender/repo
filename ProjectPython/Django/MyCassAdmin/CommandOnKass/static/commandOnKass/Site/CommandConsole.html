@@ -52,7 +52,7 @@ mysql -e "use dictionaries; select name, barcode from barcodes WHERE barcode LIK
 
 <font align="Right" size="4" color="black">
 <i>Лечение очереди(после выполнения перезапустить кассу):</i><br>
-service sync-core2 stop && service qpidd stop && rm -r /var/spool/qpid/* && service qpidd start && service sync-core2 start && rm -f /var/log/*
+service sync-core2 stop && service qpidd stop && rm -r /var/spool/qpid/* && service qpidd start && service sync-core2 start && rm -f /var/log/*.gz && rm -f /var/log/*.log.?
 <hr noshade width="40%" align="left">
 
 <i>Удаление очереди qpid:</i><br>
@@ -149,6 +149,16 @@ rm -f /var/log/*.gz && rm -f /var/log/*.log.?
 <font align="Right" size="4" color="black">
 <i>Удаление сертификатов SSH с PUPPET(Заходить надо на сервер Puppet):</i><br>
 puppet cert clean cash-20000222222-200002222221
+<hr noshade width="40%" align="left">
+
+<br><br>
+<b><font size=5">[ПРОЧИЕ ВСПОМОГАТЕЛЬНЫЕ КОМАНДЫ]</font></b>
+<br><br>
+
+
+<font align="Right" size="4" color="black">
+<i>Поиск во всех файлах в директории фразы:</i><br>
+grep -r "ЧЕК" /linuxcash/cash/reports/
 <hr noshade width="40%" align="left">
 
 <br><br>

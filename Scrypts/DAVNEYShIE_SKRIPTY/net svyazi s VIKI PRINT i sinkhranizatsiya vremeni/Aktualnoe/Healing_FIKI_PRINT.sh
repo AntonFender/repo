@@ -7,24 +7,24 @@ ProverkaNaFR=$(lsusb | grep STMicroelectronics | wc -l)
 StatFrViki=$(tail -n 30 /opt/comproxy/logs/comProxy.log|grep -w 'Error open port: /dev/ttyACM0' | wc -l)
 
 if [ $ProverkaNaFR -ge 1 ];then
-			#echo `date +'%d.%m.%Y %H:%M:%S'` "- Касса работает через ВИКИ ПРИНТ" >> $LOGFILEPATH
+			echo `date +'%d.%m.%Y %H:%M:%S'` "- Касса работает через ВИКИ ПРИНТ" >> $LOGFILEPATH
 if [ $StatFrViki -ge 1 ] ; then
-			#echo `date +'%d.%m.%Y %H:%M:%S'` "- Error open port: /dev/ttyACM0 (Счетчик ошибок = "$StatFrViki")" >> $LOGFILEPATH
-			#echo `date +'%d.%m.%Y %H:%M:%S'` "- Производим отключение модуля cdc_acm в lsmod" >> $LOGFILEPATH
+			echo `date +'%d.%m.%Y %H:%M:%S'` "- Error open port: /dev/ttyACM0 (Счетчик ошибок = "$StatFrViki")" >> $LOGFILEPATH
+			echo `date +'%d.%m.%Y %H:%M:%S'` "- Производим отключение модуля cdc_acm в lsmod" >> $LOGFILEPATH
 	
 		service comproxy stop
 		rmmod cdc-acm
 		modprobe cdc_acm 
 		
-			#echo `date +'%d.%m.%Y %H:%M:%S'` "- Перезапускаем service comproxy" >> $LOGFILEPATH
+			echo `date +'%d.%m.%Y %H:%M:%S'` "- Перезапускаем service comproxy" >> $LOGFILEPATH
 		service comproxy start
 
 else
-			#echo `date +'%d.%m.%Y %H:%M:%S'` "- Вики Принт работает без ошибок (Счетчик ошибок = "$StatFrViki")" >> $LOGFILEPATH
+			echo `date +'%d.%m.%Y %H:%M:%S'` "- Вики Принт работает без ошибок (Счетчик ошибок = "$StatFrViki")" >> $LOGFILEPATH
 fi
 
 else
-			#echo `date +'%d.%m.%Y %H:%M:%S'` "- Касса работает через ШТРИХ-ОНЛАЙН" >> $LOGFILEPATH
+			echo `date +'%d.%m.%Y %H:%M:%S'` "- Касса работает через ШТРИХ-ОНЛАЙН" >> $LOGFILEPATH
 fi
 
 #Организация CRONTAB. Устанавливает автозапуск скрипта на кассе.
