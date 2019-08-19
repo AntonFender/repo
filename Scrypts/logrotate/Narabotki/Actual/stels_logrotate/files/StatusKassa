@@ -1,0 +1,9 @@
+/var/log/StatusKassa.log
+{
+	rotate 7
+	weekly
+	missingok
+	notifempty
+	delaycompress
+	compress
+}

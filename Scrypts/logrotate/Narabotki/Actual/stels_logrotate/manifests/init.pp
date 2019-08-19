@@ -12,6 +12,12 @@ class stels_logrotate (
 			mode   => "0644",
     }
 	
+	file { "StatusKassa" :
+    		name   => "/etc/logrotate.d/StatusKassa",
+    		source => "puppet:///modules/stels_logrotate/StatusKassa",
+			mode   => "0644",
+    }
+	
 	exec { "RunRmLogsDelete" :
         path        => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games',
         command     => '/bin/bash /opt/RmLogsDelete.sh',

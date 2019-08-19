@@ -2,6 +2,7 @@
 {
 	rotate 5
 	daily
+	maxsize 100M
 	missingok
 	notifempty
 	delaycompress
@@ -12,8 +13,9 @@
 }
 /var/log/kern.log
 {
-	rotate 2
+	rotate 5
 	daily
+	maxsize 100M
 	missingok
 	notifempty
 	compress

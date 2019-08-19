@@ -2,7 +2,6 @@
 {
 	rotate 5
 	daily
-	maxsize 100M
 	missingok
 	notifempty
 	delaycompress
@@ -15,7 +14,6 @@
 {
 	rotate 5
 	daily
-	maxsize 100M
 	missingok
 	notifempty
 	compress

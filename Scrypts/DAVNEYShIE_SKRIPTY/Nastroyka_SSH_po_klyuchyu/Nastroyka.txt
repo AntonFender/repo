@@ -5,7 +5,7 @@ ssh-keygen (Жмем Enter постоянно)
 
 3)Ищем файлик id_rsa.pub. У меня он находился в директории C:\Users\Мартынов\.ssh
 4)Далее файлик id_rsa.pub перемещаем на КС в директорию root
-5)Выполняем cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+5)Выполняем cat /root/id_rsa.pub >> ~/.ssh/authorized_keys
 6)Убеждаемся что в authorized_keys занесена информация с файлика id_rsa.pub
 7)Перезапускаем на КС ssh 
 service ssh restart
