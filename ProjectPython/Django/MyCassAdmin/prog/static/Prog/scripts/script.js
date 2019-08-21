@@ -139,3 +139,36 @@ switch (name) {
 	break;
 }
 */
+
+
+/*
+var i = 0;
+
+while (i < 10) {
+    i++;
+    console.log(i);
+}
+
+
+for (var i = 0; i < 10; i++) {
+    alert(i); //выведет 0, 1, 2... 9
+}
+
+
+var arr = [1,2,3,4,5,6,7,100]
+for (var i = 0; i <= arr.length-1; i++) {
+    console.log(arr[i]);
+}
+
+
+
+
+var obj = {Коля: 200, Вася: 300, Петя: 400, Govno: 1000};
+for (var key in obj) {
+	alert(obj[key]); //выведет 'Коля', 'Вася', 'Петя'
+}
+
+*/
+//ВЫВОД НА СТРАНИЦУ РЕЗУЛЬТАТА:
+
+document.write(Math.abs(10));
