@@ -12,11 +12,11 @@
 {% block content %}
 
 <style>
-a:link {color:black;text-decoration:none;} /* не посещенная ссылка */
-a:visited {color:black;text-decoration:none;} /* посещенная ссылка */
-a:hover {color:green;text-decoration:none;} /* ссылка при наведении на нее мышкой */
-a:active {color:black;text-decoration:none;} /* нажатая ссылка */
-</style>
+  a:link {color:black;text-decoration:none;} /* не посещенная ссылка */
+  a:visited {color:black;text-decoration:none;} /* посещенная ссылка */
+  a:hover {color:green;text-decoration:none;} /* ссылка при наведении на нее мышкой */
+  a:active {color:black;text-decoration:none;} /* нажатая ссылка */
+  </style>
 
 {% include "Shablonizatot/includes/RekvizityStels.html" %}
 
@@ -31,6 +31,7 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <p>
 <a href=http://192.168.0.222:8000/Command class="btn btn-success btn-lg">Тех.поддержка</a>
 <a href=http://192.168.0.222:8000/Programma class="btn btn-primary btn-lg">Администрирование</a>
+<a href="{% static 'test/test.html' %}" type="text/css" class="btn btn-warning btn-lg">Тестовая страница</a>
 </p>
 <hr>
 </div>

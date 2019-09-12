@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>Мануал по пакетам Artix</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="style/CommandStyle.css">
+<font  size="5" color="black">
+<p align="right">
+OOO "СТЭЛС"
+</p>
+</font>
+<input type="button" onclick="history.back();" value="Назад"/>
+<font align="left" size="6" color="Black">
+<div class="god">
+<h3  class="got">
+Мануал по пакетам Artix:
+<hr width="60%" align="left" color="green" size ="3" noshade>
+</h3>
+</div>
+</font>
+</head>
+
+<body background="img/2.jpg"}>
+
+<h2>[ artix45-gui ]</h2>
+
+
+<h6>Чтобы установить пакет необходимо выполнить 2 команды:</h6>
+<h5><span class="ramka-long">echo "deb http://update.artix.su/trusty artix-4.6.136-3 artix main contrib puppet" > /etc/apt/sources.list.d/artix.list</span></h5><br>
+<h5><span class="ramka-long">aptitude purge artix45-gui && apt get install artix45-gui</span></h5><br>
+
+<div class="ramka-text3">
+<p style=font-size:20px;><b>Основной пакет Artix отвечает за:</b></p>
+1) Графика<br>
+2) Меню maintainer<br>
+3) mysql<br>
+4) puppet<br>
+5) Сервисы обмена справочниками<br><br>
+<p style=font-size:20px;><b>Зависимости по пакетам:</b></p>
+ &#10102; <b>artix-pos</b><br>
+ &#10103; <b>artix45-aqspy</b> (очередь платежей)<br>
+ &#10104; <b>artix45-devicemanager</b> (Для использования менеджера оборудования должен быть установлен этот пакет)<br>
+ &#10105; <b>artix45-discountsystem</b> (Встроенная дисконтная подсистема)<br>
+ &#10106; <b>artix45-frtools</b> (средства для работы с ККМ)<br>
+ &#10107; <b>conspy</b> (позволяет (возможно, удаленному) пользователю видеть, что отображается на виртуальной консоли Linux, и отправлять ему нажатия клавиш)<br>
+ &#10108; <b>dfu-util</b> (Программа для работы с ККМ нужна для обновления прошивки)<br>
+</div>
+<hr noshade width="40%" align="left"><br>
+
+<h6>На самом деле пакетов больше:))))</h6>
+<div class="ramka-text3">
+  artix-gui-common, artix-hardware-configurator, artix-infoclient,
+  artix-maint-mysql, artix-pos, artix-qpidd-config, artix-queue, artix-serial,
+  artix45-aqspy, artix45-autostart, artix45-core, artix45-devicemanager,
+  artix45-discountsystem, artix45-exchangers, artix45-frtools, artix45-hardware,
+  artix45-mysql-db, artix45-nes2, artix45-tools, dfu-util,
+</div>
+<hr noshade width="40%" align="left"><br>
+
+<br>
+<input type="button" onclick="history.back();" value="Назад"/>
+<br><br><br><br>
+</body>
+</html>

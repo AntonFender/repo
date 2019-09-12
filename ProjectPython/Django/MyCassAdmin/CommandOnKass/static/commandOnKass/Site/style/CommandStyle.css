@@ -1,0 +1,156 @@
+.got {
+background: url("http://3.bp.blogspot.com/-gLnHp4LoL-Q/T-hYlORTm3I/AAAAAAAAA0s/IN1bvxW-hwg/s1600/h3.png") no-repeat 4px center transparent;
+font-size: 25px;
+font-family: Oswald;
+font-weight:normal;
+padding: 3px 0px 6px 80px;
+color: #8B4513;
+border: 2px solid #DAA520;
+text-shadow: 0 1px 0 #DAA520;
+-moz-border-radius: 60px;
+-webkit-border-radius: 60px;
+border-radius: 60px;
+-moz-box-shadow: 0 1px 2px #DAA520, 1px 1px 0 rgba(255, 255, 255, 0.4) inset;
+-webkit-box-shadow: 0 2px 3px #DAA520, 1px 1px 0 rgba(255, 255, 255, 0.4) inset;
+box-shadow: 0 2px 3px #DAA520, 1px 1px 0 rgba(255, 255, 255, 0.4) inset;
+margin: 15px 3px;
+text-transform: uppercase;
+line-height: 1.2;
+}
+
+.got1 {
+background: url("http://3.bp.blogspot.com/-gLnHp4LoL-Q/T-hYlORTm3I/AAAAAAAAA0s/IN1bvxW-hwg/s1600/h3.png") no-repeat 4px center transparent;
+font-size: 25px;
+font-family: Oswald;
+font-weight:normal;
+padding: 3px 0px 6px 80px;
+color: white;
+border: 2px solid #DAA520;
+text-shadow: 0 1px 0 #DAA520;
+-moz-border-radius: 60px;
+-webkit-border-radius: 60px;
+border-radius: 60px;
+-moz-box-shadow: 0 1px 2px #DAA520, 1px 1px 0 rgba(255, 255, 255, 0.4) inset;
+-webkit-box-shadow: 0 2px 3px #DAA520, 1px 1px 0 rgba(255, 255, 255, 0.4) inset;
+box-shadow: 0 2px 3px #DAA520, 1px 1px 0 rgba(255, 255, 255, 0.4) inset;
+margin: 15px 3px;
+text-transform: uppercase;
+line-height: 1.2;
+}
+
+.god {
+	height: 100px;
+    width: 1100px;
+    foreground-color: white;	
+}
+
+h2 {
+	text-align: center;
+	height: 10px;
+    width: 800px;
+    font-weight: 600;
+    font-family: 'Titillium Web', sans-serif;
+    position: relative;
+	font-size: 22px;
+    line-height: 12px;
+    padding: 15px 0px 15px 0%;
+    color: #696969;
+    box-shadow:
+        inset 0 0 0 1px rgba(53,86,129, 0.4),
+        inset 0 0 5px rgba(53,86,129, 0.5),
+        inset -285px 0 35px white;
+    border-radius: 0 10px 0 10px;
+    background: #fff url(../images/bartoszkosowski.jpg) no-repeat center left;
+}
+
+h5 {
+	text-align: left;
+	color: Black;
+	font-family: ‘Trocchi’, serif;
+	font-size: 17px;
+	font-weight: normal;
+	margin: 0;
+
+}
+
+h6 {
+	text-align: left;
+	color: #8B4513;
+	font-size: 23px;
+	margin-bottom: 10px;
+	margin-top: 1px;
+
+}
+
+h1 {
+	
+	text-align: center;
+	height: 10px;
+    width: 800px;
+    font-weight: 600;
+    font-family: 'Titillium Web', sans-serif;
+    position: relative;
+	font-size: 22px;
+    line-height: 12px;
+    padding: 15px 0px 22px 0%;
+    color: #696969;
+    box-shadow:
+        inset 0 0 0 1px rgba(53,86,129, 0.4),
+        inset 0 0 5px rgba(53,86,129, 0.5),
+        inset -285px 0 35px white;
+    border-radius: 0 10px 0 10px;
+    background: #fff url(../images/bartoszkosowski.jpg) no-repeat center left;
+	
+}
+
+.ramka-long {
+	margin-top: 11150px;
+	background: #FFFAFA; /* Фоновый цвет блока */
+    height: 25px; /* Высота блока */
+    border:2px solid #FAEBD7; /* Ширина вид и цвет рамки */
+    -webkit-border-radius:10px; /* Safari, Chrome */
+    box-shadow: 0 0 1px 1px #FAEBD7; /* Тень*/
+    -webkit-box-shadow: 0 0 5px 2px #FAEBD7; /* Safari, Chrome */
+    -moz-box-shadow: 0 0 10px 2px #00CED1; /* Firefox */
+	padding: 1px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.ramka-small {
+	background: #FF9; /* Фоновый цвет блока */
+    width:1200px; /* Ширина блока */
+    height: 22px; /* Высота блока */
+    border:2px solid #777; /* Ширина вид и цвет рамки */
+    -webkit-border-radius:10px; /* Safari, Chrome */
+    box-shadow: 0 0 1px 1px #1A3457; /* Тень*/
+    -webkit-box-shadow: 0 0 5px 2px #1A3457; /* Safari, Chrome */
+    -moz-box-shadow: 0 0 10px 2px #1A3457; /* Firefox */
+}
+
+.ramka-text {
+	width:600px;
+	position: relative;
+	padding-left: 5px;
+	border:3px ridge grey;
+	margin-left: 10px;
+	background: white;
+}
+
+.ramka-text2 {
+	width:850px;
+	position: relative;
+	padding-left: 5px;
+	border:3px ridge grey;
+	margin-left: 10px;
+	background: white;
+}
+
+.ramka-text3 {
+	width:850px;
+	position: relative;
+	padding: 10px;
+	border:3px ridge grey;
+	margin-left: 10px;
+	background: white;
+}

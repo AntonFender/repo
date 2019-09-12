@@ -1,45 +1,48 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE html>
 
 <html>
 
-
-<title>Ошибки и как их исправить</title>
 <head>
-<font  size="5" color="black">
-<p align="right">
-OOO "СТЭЛС"
-</p>
-</font>
-<input type="button" onclick="history.back();" value="Назад"/>
-<font align="left" size="6" color="Black">
-<h3>
-Ошибки и как их исправить:
-<hr width="40%" align="left" color="green" size ="3" noshade>
-</h3>
-</font>
-</head>
 
-<style>
-a:link {color:black;text-decoration:none;} /* не посещенная ссылка */
-a:visited {color:black;text-decoration:none;} /* посещенная ссылка */
-a:hover {color:green;text-decoration:none;} /* ссылка при наведении на нее мышкой */
-a:active {color:black;text-decoration:none;} /* нажатая ссылка */
-</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="style/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style/css/bootstrap.css">
+	<link rel="stylesheet" href="style/CommandStyle.css">
+	
+<title>Ошибки и как их исправить</title>
+
+<font  size="5" color="black">
+<p align="right">OOO "СТЭЛС"</p>
+</font>
+
+<div>
+<input class="btn btn-info" style="margin-left: 10px; type="button" onclick="history.back();" value="Назад"/><br><br>
+</div>
+<font align="left" size="6" color="Black">
+<h3>Ошибки и как их исправить:</h3>
+<hr width="40%" align="left" color="green" size ="3" noshade>
+</font>
+
+</head>
 
 <body background="img/2.jpg"}>
 
-<b><font size=5">[PUPPET]</font></b>
-<br><br>
+<h1>[PUPPET]</h1>
 
-<font align="Right" size="5" color="black">
-<i>При обновлении Puppet выдает ошибку:</i><br>
+
+<h6>При обновлении Puppet выдает ошибку:</h6>
+
+<div class="ramka-text">
 <font align="Right" size="4" color="red">
 Error: Could not request certificate: execution expired<br>
-Exiting; failed to retrieve certificate and waitforcert is disabled<br><br>
+Exiting; failed to retrieve certificate and waitforcert is disabled
 </font>
-<i>Как устранить проблему:</i><br><br>
+</div>
+<h6>Как устранить проблему:</h6>
+
 &nbsp;&nbsp;&nbsp;&nbsp;1) В файлике "/etc/hosts" должны быть прописаны следующие строчки:<br><br>
 
+<div class="ramka-text">
 <font align="Right" size="4" color="green">
 127.0.0.1       cash-20000614697-200006146971   localhost<br>
 127.0.1.1       ubuntu<br>
@@ -50,14 +53,68 @@ Exiting; failed to retrieve certificate and waitforcert is disabled<br><br>
 ff02::1 ip6-allnodes<br>
 ff02::2 ip6-allrouters<br>
 </font>
-<hr noshade width="100%" align="left">
+</div>
+<hr noshade width="40%" align="left">
 
 <br>
 
+<h1>[ПРОБЛЕМА С READ-ONLY FILE]</h1>
 
 
+<h6>Чтобы устранить read-only file, пишем в консоль команду (работает не во всех случаях):</h6>
+<h5><span class="ramka-long">fsck -v -y</span></h5><br>
+<p>&nbsp;&nbsp;<b>В крайнем случае:</b></p>
+<h5><span class="ramka-long">sudo fsck.ext4 /dev/mmcblk0p5</span></h5>
+<hr noshade width="40%" align="left">
+
+<h1>[ПРОБЛЕМА С AUTOLOGON]</h1>
+
+
+<h6>Чтобы устранить эту проблему нужно последовательно выполнять комманды:</h6>
+<div class="ramka-text2">
+aptitude purge artix45-gui<br>
+echo "deb http://update.artix.su/trusty artix-4.6.136-3 artix main contrib puppet" > /etc/apt/sources.list.d/artix.list<br>
+apt-get install artix45-gui<br>
+/linuxcash/cash/tools/tools_maintain/menu/70_artix_upgrade<br>
+puppet agent -t<br>
+Сделать инициализацию данных в БД<br>
+Выгрузить все справочники<br>
+</div>
 <br>
-<input type="button" onclick="history.back();" value="Назад"/>
-<br><br><br><br>
+<h6>Если ругается на mysql:</h6>
+<div class="ramka-text2">
+<b><i>Скачать и содержимое папки mysql залить на кассу в директорию: /linuxcash/cash/data/mysql/</b></i>
+<p><h5><span class="ramka-long"><a href="File/mysql.rar" download="mysql.rar">mysql</a></h5></span></p>
+<b><i>Далее необходимо определить владельца, группу и назначить права:</b></i><br>
+chown -R mysql:mysql /linuxcash/cash/data/mysql/<br>
+chmod -R 755 /linuxcash/cash/data/mysql/<br>
+</div>
+<hr noshade width="40%" align="left">
+
+
+<h1>[EGAIS]</h1>
+
+
+<h6>Caused by: java.lang.IllegalArgumentException: org.xml.sax.SAXParseException; cvc-pattern-valid: Value '' is not facet-valid with respect to pattern '(\d{10}|\d{12})' for type 'IN':</h6>
+<h6>Caused by: org.xml.sax.SAXParseException; cvc-pattern-valid: Value '' is not facet-valid with respect to pattern '(\d{10}|\d{12})' for type 'IN'</h6>
+<div class="ramka-text2">
+<b><font size="4">Данная ошибка возникает, потому что в БД кассы не заполены поля ИНН и КПП.</font></b><br>
+<b><font size="4">Чтобы устранить, необходимо:</font></b> <br><br>
+&#9749;Убедиться, что FSRAR ID на WEB КС соответствует hostname кассы. Они должны совпадать.<br>
+&#10102;Сделать инициализация данных в БД через maintainer<br>
+&#10103;Выгрузить справочники<br>
+&#10104;Ребутнуть кассу<br>
+&#10105;Проверить через команду ter заполняются ли поля ИНН и КПП в xml-шаблоне ЕГАИС<br>
+&#9808;Если не помогло, то надо грохнуть базу dictionaries, сделать иниициализацию данных, ребутнуть кассу, выгрузить справочники<br>
+</div>
+<hr noshade width="40%" align="left">
+
+
+<div>
+<input class="btn btn-info" style="margin-left: 10px; type="button" onclick="history.back();" value="Назад"/><br><br>
+</div>
+
 </body>
+
+
 </html>

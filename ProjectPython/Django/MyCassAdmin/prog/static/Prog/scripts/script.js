@@ -170,5 +170,5 @@ for (var key in obj) {
 
 */
 //ВЫВОД НА СТРАНИЦУ РЕЗУЛЬТАТА:
-
-document.write(Math.abs(10));
+var a = 'you_govno1';
+document.write(a.replace('gono', 'hello'));
