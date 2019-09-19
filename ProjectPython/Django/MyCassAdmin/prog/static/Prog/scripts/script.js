@@ -171,4 +171,4 @@ for (var key in obj) {
 */
 //ВЫВОД НА СТРАНИЦУ РЕЗУЛЬТАТА:
 var a = 'you_govno1';
-document.write(a.replace('gono', 'hello'));
+document.write(a.replace('gono1', 'hello'));
