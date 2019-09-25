@@ -46,6 +46,11 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <h5><span class="ramka-long">mysql -e "use dictionaries; select name, barcode from barcodes WHERE barcode LIKE '4600855118279';"</span></h5>
 <hr noshade width="40%" align="left">
 
+<h6>Проверка наличия связки ШК и АМ:</h6>
+<h5><span class="ramka-long">mysql -e "use dictionaries; select * from excisemarkwhite"</span></h5>
+<hr noshade width="40%" align="left">
+
+
 
 <h2>[QPID]</h2>
 
@@ -160,6 +165,17 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <h6>Установка Xserver:</h6>
 <h5><span class="ramka-long">sudo aptitude install x11-xserver-utils</span></h5>
 <hr noshade width="40%" align="left">
+
+<h6>Архивирование файлов:</h6>
+<h5><span class="ramka-long">tar -zcvf archive.tar.gz /path/to/files</span></h5>
+<hr noshade width="40%" align="left">
+
+
+<h6>Отменить в SVN удаление или добавление до commit:</h6>
+<h5><span class="ramka-long">svn revert -R ./</span></h5>
+<hr noshade width="40%" align="left">
+
+
 
 
 <h2>[Горячие Клавиши на кассах]</h2>
