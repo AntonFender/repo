@@ -50,6 +50,15 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <h5><span class="ramka-long">mysql -e "use dictionaries; select * from excisemarkwhite"</span></h5>
 <hr noshade width="40%" align="left">
 
+<h6>Найти все кассы, где установлены ВИКИ ПРИНТ:</h6>
+<h5><span class="ramka-long">mysql -uroot -proot -e "SELECT DISTINCT workshiftid,cashcode FROM documentsAll.workshift WHERE workshiftid IN (SELECT workshiftid FROM documentsAll.kkm WHERE serialnum LIKE '_493______' AND (update_time >= '2019-08-01' AND update_time <= '2019-10-04'));"</span></h5>
+<hr noshade width="40%" align="left">
+
+<h6>Найти в documentsAll точки по FSRAR, конкретной бутылке и дате проданные ниже МРЦ:</h6>
+<h5><span class="ramka-long">select cashcode, ttime, name,price,minprice from goodsitem WHERE (cashcode LIKE '0200006147001' AND name LIKE '%ароматом лимона%') AND (ttime >= '2019-01-01' AND ttime <= '2019-10-09');</span></h5>
+<hr noshade width="40%" align="left">
+ 
+
 
 
 <h2>[QPID]</h2>
@@ -130,6 +139,9 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <h5><span class="ramka-long">&#10104; Показать все файлы в папке /var/log/ вещающие в мегабайтах:   du -h /var/log/* | grep M</span></h5><br>
 <hr noshade width="40%" align="left">
 
+<h6>Полная очистка Лог-файлов!</h6>
+<h5><span class="ramka-long">rm -f /var/log/*.gz && rm -f /var/log/*.log.? && logrotate -f /etc/logrotate.conf && logrotate -f /etc/logrotate.conf && rm -f /var/log/*.gz && rm -f /var/log/*.log.?</span></h5>
+<hr noshade width="40%" align="left">
 
 <h2>[ПОДТВЕРЖДЕНИЕ НАКЛАДНЫХ]</h2>
 

@@ -1,10 +1,8 @@
 'use strict';
 
-
-var num = 500;
-while (num > 10) {
-	num = num / 2;
-	document.write(num + '<br>')
+var arr = [];
+for (var i = 0; i < 40; i++) {
+	arr.push('x');
 }
-alert(num); //после цикла получим результат
 
+console.log(arr);

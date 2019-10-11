@@ -59,6 +59,21 @@ OOO "СТЭЛС"
 </div>
 <hr noshade width="40%" align="left"><br>
 
+<h2>[ Обновление КС ]</h2>
+<h6>Чтобы обновить КС нужно:</h6>
+<div class="ramka-text3">
+В первую очередь надо обновить обмен на КС:<br><br>
+1)Пакет <b>artix-cs-exchangers</b> в зависимостях он должен за собой тянуть пакет artix-cs-nes<br><br>
+Далее обновить ядро КС и веб одновременно:<br><br>
+2)Пакеты <b>artixcs artix-cs-web</b>, в зависимостях должен быть пакет <b>artix-core</b> и иногда <b>artixcs-third-party</b><br><br>
+3)Если имеются дополнительные пакеты то их тоже нужно обновить.<br><br>
+При обновлении ядра будет перезапуск virgo, лог старта сервиса и самого КС можно смотреть в <b>/opt/virgo/service.out</b><br>
+И сам лог миграции <b>/opt/virgo/logs/artix-server/migrate.log</b><br><br>
+При миграции только наблюдать периодически, есть ли ошибки в логе, если есть то в зависимости от ситуации исправлять 
+</div>
+<hr noshade width="40%" align="left"><br>
+
+
 <br>
 <input type="button" onclick="history.back();" value="Назад"/>
 <br><br><br><br>
