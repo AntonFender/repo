@@ -1,0 +1,2 @@
+INSERT INTO `dictionaries`.`mol`(`code`, `login`, `name`, `password`, `locked`, `inn`) VALUES ('9', '9', 'Гнида Петров Петрович', '9', 0, '99999999')
+INSERT INTO `dictionaries`.`roleuser`(`id`, `usercode`, `rolecode`, `rule`) VALUES (7, '7', 3, 1)

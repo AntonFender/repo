@@ -1,5 +1,6 @@
 'use strict';
 
+<<<<<<< HEAD
 var arr = [12, 19, 28, 13, 14, 345];
 var result = [];
 
@@ -26,5 +27,11 @@ function arraySum(arr) {
 	}
 
 	return sum;
+=======
+var arr = [];
+for (var i = 0; i < 40; i++) {
+	arr.push('x');
+>>>>>>> 69cabe658e615a593f7f4b939c568ef4d3b670a4
 }
 
+console.log(arr);

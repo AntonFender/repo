@@ -30,7 +30,7 @@
 <h1>[PUPPET]</h1>
 
 
-<h6>При обновлении Puppet выдает ошибку:</h6>
+<h6>При обновлении Puppet выдает ошибку(#1):</h6>
 
 <div class="ramka-text">
 <font align="Right" size="4" color="red">
@@ -38,7 +38,7 @@ Error: Could not request certificate: execution expired<br>
 Exiting; failed to retrieve certificate and waitforcert is disabled
 </font>
 </div>
-<h6>Как устранить проблему:</h6>
+<br><b>Как устранить проблему:</b><br><br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;1) В файлике "/etc/hosts" должны быть прописаны следующие строчки:<br><br>
 
@@ -56,14 +56,31 @@ ff02::2 ip6-allrouters<br>
 </div>
 <hr noshade width="40%" align="left">
 
+<h6>При обновлении Puppet выдает ошибку(#2):</h6>
+
+<div class="ramka-text">
+<font align="Right" size="4" color="red">
+/usr/bin/aptitude update && rm -f /root/.puppet/artix.list returned 255 instead of one of [0]
+change from notrun to 0 failed: /usr/bin/aptitude update && rm -f /root/.puppet/artix.list returned 255 instead of one of [0]
+</font>
+</div>
+
+<br><b>Как устранить проблему:</b><br><br>
+
+<div class="ramka-text">
+<font align="Right" size="4" color="green">
+1) Удалить все файлы находящиеся в директории : <b>/var/lib/apt/lists/</b><br>
+2) А также удалить файлы находящиеся в директории: <b>/var/cache/apt/archives/</b><br>
+</font>
+</div>
 <br>
 
 <h1>[ПРОБЛЕМА С READ-ONLY FILE]</h1>
 
 
 <h6>Чтобы устранить read-only file, пишем в консоль команду (работает не во всех случаях):</h6>
-<h5><span class="ramka-long">fsck -v -y</span></h5><br>
-<p>&nbsp;&nbsp;<b>В крайнем случае:</b></p>
+<h5><span class="ramka-long">fsck -v -y </span> - <b>Данную команду лучше выполнять в крайнем случае(не всегда лечит)</b></h5><br>
+<p>&nbsp;&nbsp;<b>Выполняем впервую очередь!:</b></p>
 <h5><span class="ramka-long">sudo fsck.ext4 /dev/mmcblk0p5</span></h5>
 <hr noshade width="40%" align="left">
 
