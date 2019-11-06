@@ -12,7 +12,22 @@
 
 <h2>Привет!</h2>
 
+<img src="123.jpg">
+<img src="321.png">
+<img src="234.jpg">
 
+
+<script>
+
+var elem = document.getElementsByTagName('img');
+for (var i = 0; i < elem.length; i++) {
+elem[i].onclick = func;
+}
+function func() {
+	alert(this.getAttribute('src'));
+}
+
+</script>
 
 
 <body>
