@@ -90,11 +90,13 @@ change from notrun to 0 failed: /usr/bin/aptitude update && rm -f /root/.puppet/
 <h6>Чтобы устранить эту проблему нужно последовательно выполнять комманды:</h6>
 <div class="ramka-text2">
 aptitude purge artix45-gui<br>
-echo "deb http://update.artix.su/trusty artix-4.6.136-3 artix main contrib puppet" > /etc/apt/sources.list.d/artix.list<br>
+echo "deb http://update.artix.su/trusty artix-4.6.138-11 artix main contrib puppet" > /etc/apt/sources.list.d/artix.list<br>
+apt update<br>
 apt-get install artix45-gui<br>
 /linuxcash/cash/tools/tools_maintain/menu/70_artix_upgrade<br>
 puppet agent -t<br>
 Сделать инициализацию данных в БД<br>
+reboot<br>
 Выгрузить все справочники<br>
 </div>
 <br>

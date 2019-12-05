@@ -73,6 +73,19 @@ OOO "СТЭЛС"
 </div>
 <hr noshade width="40%" align="left"><br>
 
+<h2>[ XORG ]</h2>
+<h6>Работа с XORG(<a href="https://wiki.archlinux.org/index.php/Xorg_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)/Keyboard_configuration_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)">Документация</a>):</h6>
+<div class="ramka-text3">
+<b>Чтобы работало сочетание клавишь ALT+SHIFT для переключения языка:</b><br>
+1)  sudo DISPLAY=:0 XAUTHORITY=/home/autologon/.Xauthority sudo -u autologon setxkbmap -model pc105 -layout us,ru -variant dvorak, -option grp:alt_shift_toggle<br>
+<b>Переключение языка(указываем ru или us):</b><br>
+2)  sudo DISPLAY=:0 XAUTHORITY=/home/autologon/.Xauthority sudo -u autologon setxkbmap -layout us<br>
+<b>Список доступных параметров:</b><br>
+3)  sudo DISPLAY=:0 XAUTHORITY=/home/autologon/.Xauthority sudo -u autologon setxkbmap -print -verbose 10
+
+</div>
+<hr noshade width="40%" align="left"><br>
+
 
 <br>
 <input type="button" onclick="history.back();" value="Назад"/>

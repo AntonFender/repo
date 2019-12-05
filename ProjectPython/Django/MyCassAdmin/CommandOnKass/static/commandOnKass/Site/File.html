@@ -89,6 +89,13 @@ a:active {color:#2F4F4F;font-size: 20px;text-decoration:none;} /* нажатая
 <h5><span class="ramka-long"><a href="File/Kass_Info.py" download="Kass_Info.py">Скрипт получения информации о кассе</a></h5></span><br>
 <h5><span class="ramka-long"><a href="File/ChangeOrgazization.py" download="ChangeOrgazization.py">Скрипт смены ООО</a></h5></span><br>
 
+<h2>[Изменить тип оплаты на БЕЗНАЛИЧНЫЕ (ВИКИ ПРИНТ)]</h2>
+<h5><span class="ramka-long">&#10102; В файлике <b>/linuxcash/cash/conf/ncash.ini.d/fr.ini</b> в секцию <b>"Соотнесение типов оплаты"</b> добавить строку <b>2=2; и 0=1;</b></span></h5><br>
+<h5><span class="ramka-long">&#10103; В ЮКИ для данной кассы в разделе ВАЛЮТЫ в колонке "КОД" для "СБ" должна стоять цифра <b>2</b></span></h5><br>
+<h5><span class="ramka-long">&#10104; В самом ВИКИ ПРИНТ нужно через Fito перейти: <b>"Установка параметров"->"Программирование платежей"</b>. И для <b>"Платеж 2"</b> Установить <b>БЕЗНАЛИЧНЫЕ</b></span></h5><br>
+<h5><span class="ramka-long">&#10105; Также в файлике <b>/linuxcash/cash/conf/ncash.ini.d/fr.ini</b> в секцию <b>"Соотнесение Налогов"</b> добавить строку <b>3=201</b></span></h5><br>
+<h5><span class="ramka-long">&#10106; Также должны быть выгружены справочники с TaxGroup</span></h5><br>
+<hr noshade width="40%" align="left">
 
 <br><br><br><br>
 <input type="button" onclick="history.back();" value="Назад"/>

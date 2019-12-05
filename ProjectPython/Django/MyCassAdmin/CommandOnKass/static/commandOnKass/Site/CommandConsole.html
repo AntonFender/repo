@@ -123,6 +123,23 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <h6>Создать сертификат VPN:</h6>
 <h5><span class="ramka-long">&#10102; cd /opt/certificate</span></h5><br>
 <h5><span class="ramka-long">&#10103; ./gencert.sh cash-30000111111 (Это пример, вставляем свои FSRAR)</span></h5><br>
+<hr noshade width="40%" align="left">
+
+<h6>Востановить обмен справочников:</h6>
+<h5><span class="ramka-long">service exchangers-upload restart</span></h5><br>
+<hr noshade width="40%" align="left">
+
+<h6>Удалить все файлы .aif и .flz из директории /opt/exchangers/work/:</h6>
+<h5><span class="ramka-long">&#10102; find /opt/exchangers/work/ -iname "*.aif" -delete</span></h5><br>
+<h5><span class="ramka-long">&#10103; find /opt/exchangers/work/ -iname "*.flz" -delete</span></h5><br>
+<hr noshade width="40%" align="left">
+
+<h6>Удалить ненужные файлы /srv/ftp/pub/utm/:</h6>
+<h5><span class="ramka-long">&#10102; find /srv/ftp/pub/utm/ -iname "*2019*" -delete</span></h5><br>
+<hr noshade width="40%" align="left">
+
+
+
 
 
 
@@ -162,6 +179,12 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <h5><span class="ramka-long">find /var/lib/puppet/ssl -name cash-20000222222-200002222221.pem -delete</span></h5>
 <hr noshade width="40%" align="left">
 
+<h6>Удаление лишних лицензий Артикс в puppet:</h6>
+<h5><span class="ramka-long">&#10102; Перейти в директорию с лицензиями:   <b>cd /opt/puppet/repository/puppet/files/license</b></span></h5><br>
+<h5><span class="ramka-long">&#10103; Через пробел перечисляем файлы которые надо удалить: <b>svn del stels272112019.li3 stels272112019.txt</b></span></h5><br>
+<h5><span class="ramka-long">&#10104; Комитим изменения:   <b>svn commit -m 'del duplicate file'</b></span></h5><br>
+<hr noshade width="40%" align="left">
+
 <h2>[ПРОЧИЕ ВСПОМОГАТЕЛЬНЫЕ КОМАНДЫ]</h2>
 
 
@@ -187,6 +210,25 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <h5><span class="ramka-long">svn revert -R ./</span></h5>
 <hr noshade width="40%" align="left">
 
+<h6>Посмотреть какой процессор стоит для определения вольтажа ПИПО:</h6>
+<h5><span class="ramka-long">cat /proc/cpuinfo | grep 'model name'</span></h5>
+<hr noshade width="40%" align="left">
+
+<h6>Посмотреть неотправленные документы в ЕГАИС:</h6>
+<h5><span class="ramka-long">ls /opt/utm/transport/xml/</span></h5>
+<hr noshade width="40%" align="left">
+
+<h6>Распечатать на ФР то что написано в cliche.txt:</h6>
+<h5><span class="ramka-long">./printtext -d 1 /linuxcash/cash/conf/cliche.txt</span></h5>
+<hr noshade width="40%" align="left">
+
+
+
+<h2>[FTP]</h2>
+
+<h6>На кассе через mc можно подключится к FTP cashserver:</h6>
+<h5><span class="ramka-long">ftpuser:GbplfnsqGfhjkm@10.9.0.1</span></h5>
+<hr noshade width="40%" align="left">
 
 
 
