@@ -12,6 +12,9 @@
 
 <h2>Привет!</h2>
 
+<img src="123.jpg">
+<img src="321.png">
+<img src="234.jpg">
 
 <script>
 
@@ -19,6 +22,18 @@
 alert('2019-11-22 11:08:12.820 [aff9a9c0] WARN  dialog  - Диалог cooбщение: Смена не открыта'.replace(/\d+/g, '!'));
 
 
+
+</script>
+
+<script>
+
+var elem = document.getElementsByTagName('img');
+for (var i = 0; i < elem.length; i++) {
+elem[i].onclick = func;
+}
+function func() {
+	alert(this.getAttribute('src'));
+}
 
 </script>
 
