@@ -5,13 +5,18 @@
 <title>Команды консоли для удаленой помощи</title>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="stylesheet" href="style/CommandStyle.css">
+	<link rel="stylesheet" href="style/CommandStyle.css">
+  	<link rel="stylesheet" href="style/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style/css/bootstrap.css">
+	<link rel="stylesheet" href="style/CommandStyle.css">
 <font  size="5" color="black">
 <p align="right">
 OOO "СТЭЛС"
 </p>
 </font>
-<input type="button" onclick="history.back();" value="Назад"/>
+<div>
+<input class="btn btn-info" style="margin-left: 10px; type="button" onclick="history.back();" value="Назад"/><br><br>
+</div>
 <font align="left" size="6" color="Black">
 <div class="god">
 <h3  class="got">
@@ -57,8 +62,11 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <h6>Найти в documentsAll точки по FSRAR, конкретной бутылке и дате проданные ниже МРЦ:</h6>
 <h5><span class="ramka-long">select cashcode, ttime, name,price,minprice from goodsitem WHERE (cashcode LIKE '0200006147001' AND name LIKE '%ароматом лимона%') AND (ttime >= '2019-01-01' AND ttime <= '2019-10-09');</span></h5>
 <hr noshade width="40%" align="left">
- 
 
+<h6>ПРОВЕРИТЬ АКТУАЛЬНОЕ МРЦ</h6>
+<h5><span class="ramka-long">mysql -e "use dictionaries; select * from prices WHERE effectivedateend LIKE '%2026-06-26%' AND minprice > 0;"</span></h5>
+<hr noshade width="40%" align="left"> 
+ 
 
 
 <h2>[QPID]</h2>
@@ -164,7 +172,7 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 
 
 <h6>Подтвердить накладные через консоль на кассе:</h6>
-<h5><span class="ramka-long">/root/easyegais22/easyegais2.sh  /root/easyegais22</span></h5>
+<h5><span class="ramka-long">nohup /root/easyegais22/easyegais2.sh /root/easyegais22 &</span></h5>
 <hr noshade width="40%" align="left">
 
 
@@ -231,14 +239,22 @@ a:active {color:black;text-decoration:none;} /* нажатая ссылка */
 <h5><span class="ramka-long">ftpuser:GbplfnsqGfhjkm@10.9.0.1</span></h5>
 <hr noshade width="40%" align="left">
 
+<h2>[ЗАГРУЗКА СИСТЕМЫ UBUNTU]</h2>
+
+<h6>Чтобы изменить порядок загрузки системы (Например с Ubuntu на Ubuntu с оборудованием Atol:</h6>
+<h5><span class="ramka-long">Перейти в /boot/grub/grub.cfg</span></h5><br>
+<h5><span class="ramka-long">Изменить параметр <b>set_default="0"</b> от 0 до n (где n номер по порядку)</span></h5>
+<hr noshade width="40%" align="left">
 
 
 <h2>[Горячие Клавиши на кассах]</h2>
 
 <img src="File/14.png" alt="Горячие Клавиши на кассах">
 
-<br>
-<input type="button" onclick="history.back();" value="Назад"/>
+<br><br>
+<div align="left">
+<input class="btn btn-info" style="margin-left: 10px; type="button" onclick="history.back();" value="Назад"/><br><br>
+</div>
 <br><br><br><br>
 </body>
 </html>

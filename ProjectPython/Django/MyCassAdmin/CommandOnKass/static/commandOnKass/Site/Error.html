@@ -74,6 +74,28 @@ change from notrun to 0 failed: /usr/bin/aptitude update && rm -f /root/.puppet/
 </font>
 </div>
 <br>
+<hr noshade width="40%" align="left">
+
+<h6>При обновлении Puppet выдает ошибку(#3):</h6>
+
+<div class="ramka-text">
+<font align="Right" size="4" color="red">
+Warning: Unable to fetch my node definition, but the agent run will continue:<br>
+Warning: SSL_connect returned=1 errno=0 state=SSLv3 read server session ticket A: sslv3 alert certificate revoked
+</font>
+</div>
+
+<br><b>Как устранить проблему(данные действия переустанавливают агент puppet):</b><br><br>
+
+<div class="ramka-text">
+<font align="Right" size="4" color="green">
+1) Выполнить команду на кассе : <b>apt-get purge puppet && apt-get purge puppet-common</b><br>
+2) Далее выполнить комманду: <b>apt-get install puppet && apt-get install puppet-common</b><br>
+Также можно указать версию пакета(Например: apt-get install puppet=3.7.2\* && apt-get install puppet-common=3.7.2\*
+</font>
+</div>
+<br>
+<hr noshade width="40%" align="left">
 
 <h1>[ПРОБЛЕМА С READ-ONLY FILE]</h1>
 
@@ -83,14 +105,21 @@ change from notrun to 0 failed: /usr/bin/aptitude update && rm -f /root/.puppet/
 <p>&nbsp;&nbsp;<b>Выполняем впервую очередь!:</b></p>
 <h5><span class="ramka-long">sudo fsck.ext4 /dev/mmcblk0p5</span></h5>
 <hr noshade width="40%" align="left">
+<p>&nbsp;&nbsp;<b>Для того, чтобы автоматически исправлять ошибки, найденные в процессе проверки, используйте следующую команду:</b></p>
+<h5><span class="ramka-long">fsck -a</span></h5>
+<hr noshade width="40%" align="left">
+<p>&nbsp;&nbsp;<b>Если вы хотите запустить проверку всех дисков при следующей загрузке системы, то используйте следующую команду (от root):</b></p>
+<h5><span class="ramka-long">shutdown -Fr now</span></h5>
+<hr noshade width="40%" align="left">
+
 
 <h1>[ПРОБЛЕМА С AUTOLOGON]</h1>
 
 
 <h6>Чтобы устранить эту проблему нужно последовательно выполнять комманды:</h6>
 <div class="ramka-text2">
-aptitude purge artix45-gui<br>
-echo "deb http://update.artix.su/trusty artix-4.6.138-11 artix main contrib puppet" > /etc/apt/sources.list.d/artix.list<br>
+aptitude purge artix45-gui && aptitude purge artix-gui-common<br>
+echo "deb http://update.artix.su/trusty artix-4.6.144-4 artix main contrib puppet" > /etc/apt/sources.list.d/artix.list<br>
 apt update<br>
 apt-get install artix45-gui<br>
 /linuxcash/cash/tools/tools_maintain/menu/70_artix_upgrade<br>
